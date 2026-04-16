@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Atelier d'Art | Boutique Officielle</title>
+    <style>
+        :root {
+            --primary-rose: #fff5f7;
+            --soft-rose: #fce4ec;
+            --accent-orange: #fff3e0;
+            --deep-orange: #ff8a65;
+            --text-color: #444;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body { background-color: var(--primary-rose); color: var(--text-color); }
+
+        /* --- Navigation & Catégories --- */
+        nav {
+            background: var(--white);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--deep-orange); }
+
+        /* --- Header --- */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, var(--soft-rose), var(--primary-rose));
+        }
+
+        header h1 { font-size: 3rem; color: #d81b60; margin-bottom: 15px; }
+        header p { font-size: 1.1rem; color: #888; max-width: 600px; margin: 0 auto; }
+
+        /* --- Section Gallery --- */
+        .container { max-width: 1100px; margin: 50px auto; padding: 20px; }
+        
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .item:hover { transform: translateY(-10px); }
+
+        .image-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: #fdfdfd;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .details { padding: 25px; text-align: center; }
+        
+        .details h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: #e65100;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .btn-order {
+            display: block;
+            background: var(--deep-orange);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover { background: #f4511e; box-shadow: 0 5px 15px rgba(255, 138, 101, 0.4); }
+
+        /* --- Section À Propos --- */
+        .about-section {
+            background: var(--white);
+            padding: 80px 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .about-content { max-width: 700px; margin: 0 auto; }
+        .about-content h2 { margin-bottom: 20px; color: #d81b60; }
+
+        footer { padding: 40px; text-align: center; color: #bbb; font-size: 0.8rem; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Accueil</a>
+        <a href="#gallery">Tableaux</a>
+        <a href="#about">À propos</a>
+        <a href="https://wa.me/212656947701" target="_blank">Contact WhatsApp</a>
+    </nav>
+
+    <header id="home">
+        <h1>Art & Douceur</h1>
+        <p>Une collection unique de portraits réalisés à la main, capturant l'essence et l'émotion à travers le stylo et le graphite.</p>
+    </header>
+
+    <div class="container" id="gallery">
+        <h2 class="section-title">artwork by lamia</h2>
+        
+        <div class="gallery">
+            
+            <div class="item">
+                <div class="image-container">
+                    <img src="1599094e-bef9-4c77-86d9-178cf588668b.jpeg" alt="Portrait Rose">
+                </div>
+                <div class="details">
+                    <h3>La Vie en Rose</h3>
+                    <div class="price-tag">250 DH</div>
+                    <a href="#" class="btn-order" onclick="commander('La Vie en Rose', '250 DH')">Commander sur WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+                    <img src="b222d27a-0ae7-45cd-b710-7a133bf1e805.jpeg" alt="Mouvement Bleu">
+                </div>
+                <div class="details">
+                    <h3>Graphite Soul</h3>
+                    <div class="price-tag">300 DH</div>
+                    <a href="#" class="btn-order" onclick="commander('Graphite Soul', '300 DH')">Commander sur WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+                    <img src="dc2f7bae-b2c4-4f71-8a2a-f2db554c9572.jpeg" alt="Portrait Crayon">
+                </div>
+                <div class="details">
+                    <h3>The Silent Gaze</h3>
+                    <div class="price-tag">200 DH</div>
+                    <a href="#" class="btn-order" onclick="commander('The Silent Gaze', '200 DH')">Commander sur WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="about-section" id="about">
+        <div class="about-content">
+            <h2>L'artiste derrière le pinceau</h2>
+            <p>Passionnée par le dessin depuis toujours, je me spécialise dans les portraits détaillés. Chaque trait est posé avec soin pour donner vie à mes sujets, que ce soit avec la douceur d'un stylo rose ou la profondeur du graphite.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Portfolio d'Artiste. Créé avec passion.</p>
+    </footer>
+
+    <script>
+        function commander(nom, prix) {
+            const tel = "212656947701"; // Ton numéro ici
+            const message = `Bonjour ! Je souhaite commander le tableau suivant :\n\n- Nom : ${nom}\n- Prix : ${prix}\n\nEst-il toujours disponible ?`;
+            const url = `https://wa.me/${tel}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
